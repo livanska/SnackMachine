@@ -34,7 +34,7 @@ class SnackMachine {
                             this.purchases.forEach(p => { if (p.name === name) p.amount += 1 }) :
                             this.purchases.push({ name: name, pricePerItem: s.pricePerItem, amount: 1, date: new Date() })
                         logger(`Bought 1 "${name}"`)
-                        }
+                    }
                     else logger(`Not enough "${name}" in machine`)
             }
             );
@@ -60,7 +60,13 @@ class SnackMachine {
 
     sinceDateReport = (date) => {
         logger('*******PERIOD REPORT*******')
-        let report = this.purchases.filter(p => p.date.getDate() >= date.getDate());
+        let report = this.purchases.sort((a, b) => {
+            if (a.name < b.name)
+                return -1;
+            if (a.name > b.name)
+                return 1;
+            return 0;
+        }).filter(p => p.date.getDate() >= date.getDate());
         report.length > 0 ? (report.forEach(r => logger(`> ${r.name} ${r.amount} `)), logger(`Total: ${this.getTotal(report)}`)) :
             logger('No snacks bought during this period')
         logger('******************************')
@@ -68,7 +74,7 @@ class SnackMachine {
 
     clear = () => {
         this.snacks = this.snacks.filter(s => s.amount !== 0)
-        console.log( this.snacks)
+        console.log(this.snacks)
     }
 
     categoryExists = (name) => {
