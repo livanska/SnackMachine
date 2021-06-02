@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="demo.js"></script>
+    <script src="snackMachine.js"></script>
+
+</head>
+
+<body onload="createSnackMachine()">
+    <div class= "container-md ">
+    <h1>Snack Machine</h1>
+    <p>Liliia Ivanska</p>
+    <textarea readonly='true' class="form-control" name="" id="logs" cols="30" rows="10"></textarea>
+ 
+    <div class="input-group mb-3 mt-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Chocolate bar" id="nameInput">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Price per item</span>
+        </div>
+        <input type="number" min="0.05" step="0.01" value="1.00" placeholder="1,00" id="priceInput" class="form-control"
+            placeholder="Price">
+        <div class="input-group-append">
+            <span class="input-group-text">$</span>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Amount</span>
+        </div>
+        <input type="number" min="0" value="1" class="form-control" id="amountInput" placeholder="1">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Date (for reports)</span>
+        </div>
+        <input type="date" class="form-control" id="dateInput">
+    </div>
+
+    <button class="btn btn-primary" onclick="addCategory()">Add category
+    </button>
+    <button class="btn btn-primary" onclick="addItem()">Add item
+    </button>
+    <button class="btn btn-primary" onclick="purchase()">Purchase
+    </button>
+    <button class="btn btn-primary" onclick="list()">List
+    </button>
+    <button class="btn btn-primary" onclick="monthReport()">Month report
+    </button>
+    <button class="btn btn-primary" onclick="sinceDateReport()">Since date report
+    </button>
+    <button class="btn btn-primary" onclick="clearNulls()">Clear
+    </button>
+</div>
+</body>
+
+</html>
